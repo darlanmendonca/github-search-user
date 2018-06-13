@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "curly": ["error", "all"],
+    "brace-style": ["error", "1tbs"],
+    "quotes": ["error", "single"],
+    "object-curly-spacing": ["error", "never"],
+    "array-bracket-spacing": ["error", "never"],
+    "space-infix-ops": ["error", {"int32Hint": false}],
+    "no-var": "error",
+    "strict": "error",
+    "no-undef": "error",
+    "no-unused-vars": ["error", {"vars": "all", "args": "after-used"}],
+    "block-scoped-var": "error",
+    "camelcase": "error",
+    "eol-last": "error",
+    "eqeqeq": ["error", "smart"],
+    "max-depth": ["warn", 3],
+    "max-len": ["warn", 120],
+    "max-statements": ["warn", 20],
+    "new-cap": "warn",
+    "no-extend-native": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 0}],
+    "block-spacing": ["error", "never"],
+    "newline-per-chained-call": "error",
+    "keyword-spacing": "error",
+    "space-unary-ops": "error"
+  }
+}
