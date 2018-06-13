@@ -12,7 +12,7 @@ const List = ({children}) =>
   </ul>
 
 List.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.any,
 }
 
 export default List
