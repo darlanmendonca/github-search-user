@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './search.page.style.scss'
+import Input from '../input/input.component.jsx'
 
 const Search = ({submit}) => {
   return (
-    <form noValidate autoComplete='off' onSubmit={handleSubmit}>
-      <input placeholder="type by username" name='query' required />
+    <form className='search' noValidate autoComplete='off' onSubmit={handleSubmit}>
+      <Input label='Search username' name='query' />
       <button>search</button>
     </form>
   )

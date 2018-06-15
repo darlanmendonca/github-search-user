@@ -6,7 +6,8 @@
     "sourceType": "module",
     "ecmaVersion": 8,
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "experimentalObjectRestSpread": true
     }
   },
   "env": {

@@ -1,13 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-const style = {
-  listStyle: 'none',
-  padding: 0,
-}
+import './list.style.scss'
 
 const List = ({children}) =>
-  <ul style={style}>
+  <ul className='list'>
     {children}
   </ul>
 

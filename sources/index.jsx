@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import SearchPage from './search/search.page.jsx'
 import UserPage from './user/user.page.jsx'
 import RepoPage from './repo/repo.page.jsx'
+import './index.scss'
 
 const router =
   <BrowserRouter>
