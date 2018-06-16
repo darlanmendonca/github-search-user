@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './search.page.style.scss'
+import './search.style.scss'
 import Input from '../input/input.component.jsx'
 
 const Search = ({submit}) => {

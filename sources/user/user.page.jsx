@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import List from '../list/list.component.jsx'
+import Chevron from '../chevron/chevron.component.jsx'
 import PropTypes from 'prop-types'
+import './user.style.scss'
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -12,6 +14,45 @@ class UserPage extends React.Component {
       repos: [],
     }
     this.load()
+  }
+
+  render() {
+    const {user} = this.state
+    const repos = this.state.repos.map((repo, index) =>
+      <li key={index}>
+        <Link to={`/${this.username}/${repo.name}`}>{repo.name} - {repo.stars}</Link>
+      </li>
+    )
+
+    return (
+      <section>
+        <header>
+          <Link to='/'>
+            <Chevron type='left' /> search
+          </Link>
+          <a>{user.login}</a>
+        </header>
+
+        <main>
+          <aside>
+            <div className="sticky">
+              <div><img src={user.avatar_url} /></div>
+              <div className="info">
+                <h2>{user.name}</h2>
+                <h3>{user.login}</h3>
+                <p>{user.bio}</p>
+                <ul>
+                  <li>Seguidores: <span className='bubble'>{user.followers}</span></li>
+                  <li>Seguindo: <span className='bubble'>{user.following}</span></li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <List>{repos}</List>
+        </main>
+      </section>
+    )
   }
 
   load() {
@@ -34,30 +75,6 @@ class UserPage extends React.Component {
         }))
         this.setState({repos})
       })
-  }
-
-  render() {
-    const {user} = this.state
-    const repos = this.state.repos.map((repo, index) =>
-      <li key={index}>
-        <Link to={`/${this.username}/${repo.name}`}>{repo.name} - {repo.stars}</Link>
-      </li>
-    )
-
-    return (
-      <section>
-        <Link to='/'>back</Link>
-        <h2>User: {this.username}</h2>
-        <img src={user.avatar_url} />
-
-        <div>
-          Seguidores: {user.followers} - Seguindo: {user.following}
-          <p>{user.bio}</p>
-        </div>
-
-        <List>{repos}</List>
-      </section>
-    )
   }
 }
 
