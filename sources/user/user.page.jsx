@@ -35,9 +35,9 @@ class UserPage extends React.Component {
 
         <main>
           <aside>
-            <div className="sticky">
+            <div className='sticky'>
               <div><img src={user.avatar_url} /></div>
-              <div className="info">
+              <div className='info'>
                 <h2>{user.name}</h2>
                 <h3>{user.login}</h3>
                 <p>{user.bio}</p>
@@ -49,7 +49,11 @@ class UserPage extends React.Component {
             </div>
           </aside>
 
-          <List>{repos}</List>
+          <div className="repositories">
+            <h2>Repositórios</h2>
+            <button onClick={() => this.toggleSort()}>Inverter ordenação</button>
+            <List>{repos}</List>
+          </div>
         </main>
       </section>
     )
@@ -57,7 +61,7 @@ class UserPage extends React.Component {
 
   load() {
     const user = `https://api.github.com/users/${this.username}`
-    const repos = `https://api.github.com/users/${this.username}/repos`
+    const repos = `https://api.github.com/users/${this.username}/repos?type=owner&sort=updated`
 
     fetch(user)
       .then(response => response.json())
@@ -66,15 +70,28 @@ class UserPage extends React.Component {
         this.setState({user})
       })
 
+    const starsAscending = (a, b) => a.stargazers_count > b.stargazers_count
+      ? -1
+      : a.stargazers_count < b.stargazers_count
+        ? 1
+        : 0
+
     fetch(repos)
       .then(response => response.json())
       .then((response) => {
-        const repos = response.map(repo => ({
-          name: repo.name,
-          stars: repo.stargazers_count,
-        }))
+        const repos = response
+          .sort(starsAscending)
+          .map(repo => ({
+            name: repo.name,
+            stars: repo.stargazers_count,
+          }))
         this.setState({repos})
       })
+  }
+
+  toggleSort() {
+    const repos = this.state.repos.reverse()
+    this.setState({repos})
   }
 }
 
