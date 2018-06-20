@@ -1,9 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import List from '../list/list.component.jsx'
-import Chevron from '../chevron/chevron.component.jsx'
 import PropTypes from 'prop-types'
 import './user.style.scss'
+import Header from '../header/header.component.jsx'
+import List from '../list/list.component.jsx'
+import Chevron from '../chevron/chevron.component.jsx'
+import Bubble from '../bubble/bubble.component.jsx'
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -26,12 +28,12 @@ class UserPage extends React.Component {
 
     return (
       <section>
-        <header>
+        <Header>
           <Link to='/'>
             <Chevron type='left' /> search
           </Link>
           <a>{user.login}</a>
-        </header>
+        </Header>
 
         <main>
           <aside>
@@ -42,8 +44,8 @@ class UserPage extends React.Component {
                 <h3>{user.login}</h3>
                 <p>{user.bio}</p>
                 <ul>
-                  <li>Seguidores: <span className='bubble'>{user.followers}</span></li>
-                  <li>Seguindo: <span className='bubble'>{user.following}</span></li>
+                  <li><Bubble>Seguidores: {user.followers}</Bubble></li>
+                  <li><Bubble>Seguindo: {user.following}</Bubble></li>
                 </ul>
               </div>
             </div>

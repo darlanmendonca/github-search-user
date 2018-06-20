@@ -13,6 +13,7 @@
 
 .repositories h2 {
   font-weight: normal;
+  margin-top: 0;
 }
 
 aside {
@@ -59,30 +60,4 @@ aside {
   li {line-height: 2em;}
 
   .sticky {position: sticky;top: 10px}
-}
-
-.bubble {
-  background: #adb5bd;
-  color: black;
-  border-radius: 1em;
-  padding: .2em .5em;
-}
-
-header {
-  padding: 2em 0;
-
-  a {
-    text-decoration: none;
-    display: inline-block;
-    color: inherit;
-
-    & + a {
-      &:before {
-        content: '/';
-        transform: translateY(1px);
-        display: inline-block;
-        margin: 0 5px;
-      }
-    }
-  }
 }
