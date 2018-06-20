@@ -1,14 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: process.NODE_ENV || 'development',
   entry: './sources/index.jsx',
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/build`,
     filename: 'app.bundle.js'
   },
   devServer: {
-    contentBase: `${__dirname}/dist`,
+    contentBase: `${__dirname}/build`,
     compress: true,
     port: process.PORT || 3000,
     historyApiFallback: true,
