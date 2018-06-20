@@ -15,3 +15,19 @@ then start
 npm start
 ```
 
+To test em production, access [https://lit-citadel-81089.herokuapp.com/](https://lit-citadel-81089.herokuapp.com/)
+
+### build
+
+```sh
+npm run build
+```
+
+```sh
+# deploy, after commit and build
+git push heroku master
+
+# if you want to open in browser, require heroku cli
+heroku open
+```
+
